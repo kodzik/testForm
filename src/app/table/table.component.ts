@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Contract } from '../_models/contract';
+import { IContract } from '../_models/contract';
 
 @Component({
   selector: 'app-table',
@@ -10,8 +10,8 @@ import { Contract } from '../_models/contract';
 })
 export class TableComponent implements OnInit {
 
-  data: Contract
-  displayedColumns: string[] = ['name', 'description', 'trigger', 'interimtrigger', 'lbmanEffectivedeadlineinfo'];
+  data: IContract;
+  displayedColumns: string[] = ['name', 'description', 'trigger', 'interimtrigger', 'lbmanEffectivedeadlineinfo', 'edit'];
 
   constructor(private http: HttpClient) { }
 
@@ -20,9 +20,8 @@ export class TableComponent implements OnInit {
   }
 
   getTableData(){
-    this.http.get<Contract>(`${environment.apiUrl}/assets/response_1548851123961.json`).subscribe((data: Contract) => {
-      console.log(data);
-      this.data = data
+    this.http.get<IContract>(`${environment.apiUrl}/assets/response_1548851123961.json`).subscribe((data: IContract) => {
+      this.data = data;
     })
   }
 

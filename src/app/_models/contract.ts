@@ -1,4 +1,4 @@
-export interface Contract{
+export interface IContract{
     id: number,
     name: string,
     status: string,
