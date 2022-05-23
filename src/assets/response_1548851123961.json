@@ -6,7 +6,7 @@
     "modifyBy": "klg",
     "modifyDate": "2019-01-30 12:27:22.000490",
     "description": null,
-    "triggerdateLbman": false,
+    "triggerdateLbman": 11,
     "triggerdateSvcscat": null,
     "triggerdateItem": true,
     "isinterimtrigger": false,
@@ -22,7 +22,7 @@
     "constraint": 1,
     "lbmanEffectivedeadlineinfo": 3,
     "lbmanProcbasisref": 1,
-    "editable": true
+    "editable": false
   },
   {
     "id": 2,

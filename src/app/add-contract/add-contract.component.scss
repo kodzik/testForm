@@ -1,0 +1,16 @@
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 1rem;
+}
+
+.inside-card{
+  margin-bottom: 1rem;
+}
+
+.checkbox{
+  margin-left: 1rem;
+}

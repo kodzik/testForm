@@ -1,15 +1,99 @@
 <mat-card>
-    <form [formGroup]="contractForm" (ngSubmit)="saveContract(contractForm)">
-        <mat-form-field appearance="outline">
-            <mat-label>Name</mat-label>
-            <input matInput formControlName="name">
-            <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-            <!-- <mat-hint>Hint</mat-hint> -->
-        </mat-form-field>
+  <h1>Trigger and Constraint Schemes - New</h1>
 
-        <mat-form-field>
-            <mat-label>Trigger Name</mat-label>
-            <input matInput formControlName="trigger">
-        </mat-form-field>
-    </form>
+  <form class="flex-column" [formGroup]="contractForm">
+
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Trigger Name</mat-label>
+        <mat-select formControlName="trigger">
+          <mat-option *ngFor="let item of triggerNames" value={{item}}>{{item}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-card class="inside-card">
+      <mat-card-subtitle>Trigger Date Known</mat-card-subtitle>
+      <mat-radio-group formControlName="triggerDateKnown" aria-label="Select an option">
+        <mat-radio-button *ngFor="let item of triggerTypes" value={{item}} >{{item}}</mat-radio-button>
+      </mat-radio-group>
+    </mat-card>
+
+    <mat-card class="inside-card flex-column">
+      <mat-checkbox formControlName="isinterimtrigger">Is Interim Trigger?</mat-checkbox>
+
+      <mat-form-field >
+        <mat-label>Interim Trigger Name</mat-label>
+        <mat-select formControlName="interimtrigger">
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </mat-card>
+
+    <mat-form-field>
+      <mat-label>Constraint Name</mat-label>
+      <mat-select formControlName="constraint">
+        <mat-option *ngFor="let item of constraintNames" value={{item}}>{{item}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-card class="inside-card">
+      <mat-card-subtitle>Constraint Value Known</mat-card-subtitle>
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Lawful</mat-radio-button>
+        <mat-radio-button value="2">Service Category</mat-radio-button>
+        <mat-radio-button value="3">Item</mat-radio-button>
+      </mat-radio-group>
+    </mat-card>
+
+    <mat-form-field>
+      <mat-label>Effective Deadline Info</mat-label>
+      <mat-select formControlName="lbmanEffectivedeadlineinfo">
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Related Processing Basis Reference Type</mat-label>
+      <mat-select formControlName="lbmanProcbasisref">
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-card class="inside-card">
+      <mat-checkbox formControlName="purma">PURMA</mat-checkbox>
+      <mat-checkbox formControlName="nntm" class="checkbox">NNTM</mat-checkbox>
+      <mat-checkbox formControlName="pdbtm" class="checkbox">PDB</mat-checkbox>
+      <mat-checkbox formControlName="dsart" class="checkbox">DSART</mat-checkbox>
+    </mat-card>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" ></textarea>
+    </mat-form-field>
+  </form>
+
+  <button mat-raised-button [routerLink]="'home'">
+    <mat-icon>close</mat-icon>
+    Close
+  </button>
+
+  <button mat-raised-button [disabled]="!contractForm.valid" (click)="saveContract(contractForm)">
+    <mat-icon>save</mat-icon>
+    Save
+  </button>
+
 </mat-card>
+
+<div *ngIf="debug">
+  <p>{{this.contractForm.status}}</p>
+  <pre>{{this.contractForm.value | json}}</pre>
+</div>
+

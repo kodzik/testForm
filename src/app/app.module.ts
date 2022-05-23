@@ -17,6 +17,9 @@ import { AddContractComponent } from './add-contract/add-contract.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -24,20 +27,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     HomeComponent,
     TableComponent,
-    AddContractComponent
+    AddContractComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
 
-    MatTableModule,
     HttpClientModule,
+
+    MatTableModule,
     MatIconModule,
     MatButtonModule,
+    MatRadioModule,
+    MatCheckboxModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     // FormsModule,
     ReactiveFormsModule,
   ],
