@@ -11,7 +11,7 @@ import { triggerName } from "../_models/triggerNames";
 })
 export class AddContractComponent implements OnInit {
 
-  debug: boolean = true;
+  debug: boolean = false;
 
   contractForm: FormGroup;
   disabled: boolean = true;
